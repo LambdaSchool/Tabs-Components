@@ -8,6 +8,7 @@
   position: absolute;
   left: 25px;
   cursor: pointer;
+  transition: all 1s ease-in-out;
 }
 .dropdown .dropdown-button {
   padding: 15px;
@@ -22,12 +23,15 @@
 .dropdown .dropdown-content {
   width: 100%;
   position: absolute;
-  background-color: #ffffff;
+  background-color: rgba(216, 185, 46, 0.608);
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-top: 10px;
-  border: 2.5px solid #931d25;
+  border: 1px solid #931d25;
+  color: #68151a;
+  height: 268%;
+  transition: all 1s ease-in-out;
 }
 .dropdown .dropdown-link {
   width: 100%;
@@ -35,17 +39,23 @@
   padding: 15px 0;
   font-size: 18px;
   text-decoration: none;
-  color: #931d25;
+  color: inherit;
 }
 .dropdown .dropdown-link:hover {
   color: #ffffff;
   background-color: #931d25;
 }
 .dropdown .dropdown-hidden {
-  display: none;
+  transition: all 1s ease-in-out;
+  height: 0;
+  display: hidden;
+  color: transparent;
+  pointer-events: none;
 }
 .tabs {
   width: 100%;
+  background-color: rgba(216, 185, 46, 0.608);
+  transition: all 0.5s ease-out;
 }
 .tabs .tabs-items {
   width: 100%;
@@ -53,8 +63,12 @@
   display: flex;
   justify-content: center;
   padding-top: 60px;
+  color: maroon;
 }
 .tabs .tabs-item {
+  height: 0;
+  transition: all 0.5s ease-out;
+  opacity: 0;
   display: none;
   width: 75%;
 }
@@ -65,35 +79,102 @@
 }
 .tabs .tabs-item-selected {
   display: block;
+  height: 100%;
+  opacity: 1;
+  transition: all 0.5s ease-out;
 }
 .tabs .tabs-links {
   display: flex;
-  background-color: #931d25;
+  background-color: #68151a;
 }
 .tabs .tabs-link {
   padding: 20px 25px;
   font-size: 24px;
   background-color: #931d25;
-  border-right: 1px solid white;
+  border-right: 1px solid rgba(216, 185, 46, 0.608);
   color: #ffffff;
   cursor: pointer;
+}
+.tabs .tabs-link:last-child {
+  border-right: 0;
 }
 .tabs .tabs-link:hover {
   background-color: #be2530;
 }
 .tabs .tabs-link-selected {
   z-index: 2;
-  border-right: 1px solid #931d25;
-  background-color: #ffffff;
-  color: black;
+  border-right: 1px solid rgba(216, 185, 46, 0.608);
+  background-color: rgba(216, 185, 46, 0.608);
+  color: maroon;
 }
 .tabs .tabs-link-selected:hover {
-  background-color: #ffffff;
+  background-color: rgba(216, 185, 46, 0.608);
+}
+.carousel-container {
+  width: 100%;
+  height: 350px;
+  position: relative;
+}
+.carousel-container .carousel-image-container {
+  border: 15px ridge #be2530;
+  background-color: black;
+  height: 350px;
+  overflow: hidden;
+  transition: all 0.7s ease-in-out;
+}
+.carousel-container .carousel-image-container .carousel-image {
+  transition: all 0.7s ease-in-out;
+  width: 100%;
+  height: 350px;
+  background-color: black;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.carousel-container .carousel-image-container .carousel-image[data-gallery="1"] {
+  background-image: url('https://images.pexels.com/photos/1161446/pexels-photo-1161446.jpeg?auto=compress&cs=tinysrgb&h=350');
+  opacity: 0;
+  display: none;
+}
+.carousel-container .carousel-image-container .carousel-image[data-gallery="2"] {
+  background-image: url('https://images.pexels.com/photos/1139541/pexels-photo-1139541.jpeg?auto=compress&cs=tinysrgb&h=350');
+  opacity: 0;
+  display: none;
+}
+.carousel-container .carousel-image-container .carousel-image[data-gallery="3"] {
+  background-image: url('https://images.pexels.com/photos/1323550/pexels-photo-1323550.jpeg?auto=compress&cs=tinysrgb&h=350');
+  display: none;
+}
+.carousel-container .carousel-image-icons-container {
+  height: 15px;
+  width: 30%;
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: space-around;
+}
+.carousel-container .carousel-image-icons-container .carousel-image-icon {
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+  border: 1px solid #ffffff;
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+.active {
+  background-color: rgba(255, 255, 255, 0.657);
+}
+.image-active {
+  display: block !important;
+  opacity: 1 !important;
 }
 body {
   box-sizing: border-box;
   min-width: 300px;
   margin: 0;
+  height: 1000px;
+  background-image: linear-gradient(to bottom right, #be2530, #68151a);
 }
 .header-container {
   width: 100%;
@@ -117,7 +198,9 @@ body {
   overflow: hidden;
 }
 .section .box {
+  background-color: rgba(216, 185, 46, 0.608);
   padding: 40px;
+  color: maroon;
 }
 .section .box .box-title {
   font-size: 24px;
